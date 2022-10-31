@@ -9,7 +9,7 @@ export const SelectTimeframe = ({onTimeframeSelected}) => {
             <div className="grid">
                 {selectDay.map((timeframes) => (
                     <button key={timeframes} className="timeframes" 
-                    onClick={() => onTimeframeSelected(timeframes)}>{timeframes}</button>
+                    onClick={() => onTimeframeSelected(timeframes)} style={{ textTransform: "capitalize" }}>{timeframes}</button>
                 ))
                 }
             </div>

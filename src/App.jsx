@@ -14,8 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Horoscope app</h1>
-      {selectedSign}
+      <h1>Horoscope</h1>
         {!selectedSign && (<SelectSign 
         onSignSelected={setSelectedSign}
         />

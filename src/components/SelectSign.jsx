@@ -13,7 +13,7 @@ export const SelectSign = ({onSignSelected}) => {
             <h2>Please select a sign</h2>
             <div className="grid">
                 {signs.map((sign) => (
-                    <button key={sign} onClick={() => onSignSelected(sign)}>{sign}</button>
+                    <button key={sign} onClick={() => onSignSelected(sign)} style={{ textTransform: "capitalize" }}>{sign}</button>
                 ))
                 }
             </div>
