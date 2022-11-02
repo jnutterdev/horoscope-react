@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import { SelectSign } from './components/SelectSign';
 import { SelectTimeframe } from './components/SelectTimeframe';
 import { Horoscope } from './components/Horoscope';
@@ -15,7 +16,8 @@ function App() {
   return (
     <div className="App">
       <h1>Horoscope</h1>
-        {!selectedSign && (<SelectSign 
+        {!selectedSign && (
+        <SelectSign 
         onSignSelected={setSelectedSign}
         />
         )}
