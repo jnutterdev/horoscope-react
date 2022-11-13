@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getSigns } from '../services/api';
+import { HoroscopeImages } from './HoroscopeImages';
 
 export const SelectSign = ({onSignSelected}) => {
     const [signs, setSigns] = useState([])

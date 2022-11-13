@@ -11,6 +11,12 @@ export const Horoscope = ({ sign, timeframe }) => {
     
     return (
         <div>
+            <img 
+                src={`images/${sign}.png`} 
+                key={sign} 
+                alt={sign} 
+                width="150"
+                />
             <h2><span>{timeframe}'s</span> horoscope for 
             <span> {sign}</span>:</h2>
             <p>{horoscope}</p>
