@@ -1,10 +1,8 @@
 import React from "react"
 import { useEffect, useState } from "react"
-import { getSigns } from "../services/api";
 
 export const Horoscope = ({ sign, timeframe }) => {
     const [signs, setSigns] = useState([]);
-    const [horoscope, setHoroscope] = useState([]);
     const [ description, setDescription ] = useState(null);
     const [ current_date, setCurrentDate ] = useState(null);
 
