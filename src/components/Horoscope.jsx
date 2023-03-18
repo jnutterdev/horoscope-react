@@ -1,13 +1,33 @@
 import React from "react"
 import { useEffect, useState } from "react"
-import { getHoroscope } from "../services/api";
+import { getSigns } from "../services/api";
 
 export const Horoscope = ({ sign, timeframe }) => {
+    const [signs, setSigns] = useState([]);
     const [horoscope, setHoroscope] = useState([]);
- 
+    const [ description, setDescription ] = useState(null);
+    const [ current_date, setCurrentDate ] = useState(null);
+
     useEffect(() => {
-        getHoroscope(sign, timeframe).then(setHoroscope);
-    }, [sign, timeframe]);
+        const baseUrl = "https://aztro.sameerkumar.website/";
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify()
+        };
+        const fetchData = async () => {
+            try {
+                const response = await fetch(`${baseUrl}?sign=${sign}&day=${timeframe}`, requestOptions);
+                const json = await response.json();
+                setDescription(json.description);
+                setCurrentDate(json.current_date);
+                setSigns(sign, timeframe);
+            } catch (error) {
+              console.log("error", error);
+            }
+          };
+        fetchData();
+    }, []);
     
     return (
         <div>
@@ -17,11 +37,11 @@ export const Horoscope = ({ sign, timeframe }) => {
                 alt={sign} 
                 width="150"
                 />
+                <h2>{current_date}</h2>
             <h2><span>{timeframe}'s</span> horoscope for 
             <span> {sign}</span>:</h2>
-            <p>{horoscope}</p>
-            <sub>- &copy; Kelli Fox, The Astrologer, http://new.theastrologer.com</sub>
+            <p>{description}</p>
+            <sub></sub>
         </div>
     )
-
 }
